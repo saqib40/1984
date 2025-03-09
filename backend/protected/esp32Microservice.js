@@ -1,4 +1,5 @@
 // will think about it later
-exports.esp = async(req,res) => {
+async function esp(req,res) {
     
 }
+module.exports = esp;

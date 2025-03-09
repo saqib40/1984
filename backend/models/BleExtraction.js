@@ -21,7 +21,11 @@ const BleExtractionSchema = new mongoose.Schema({
     default: 'BLE',
     enum: ['BLE'], // Restrict to BLE only
   },
-  deviceId: { type: String, required: true }, // e.g., MAC address or UUID
+  deviceId: { 
+    type: String, 
+    required: true, 
+    unique: true // Ensure deviceId is unique
+  }, // e.g., MAC address or UUID
   timestamp: { type: Date, default: Date.now },
   operatorId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
   hash: { type: String, required: true }, // SHA-256 hash of file
@@ -42,5 +46,8 @@ const BleExtractionSchema = new mongoose.Schema({
   services: [ServiceSchema], // BLE services and characteristics
   error: { type: String }, // Optional error message if extraction failed
 });
+
+// Add unique index on deviceId
+BleExtractionSchema.index({ deviceId: 1 }, { unique: true });
 
 module.exports = mongoose.model('BleExtraction', BleExtractionSchema);

@@ -12,7 +12,7 @@ const esp = require("../protected/esp32Microservice");
 
 router.post("/login", login);
 router.post("/signup", signup);
-router.get("/get-ble", auth, getBLE);
+router.get("/get-ble", auth, getBLE); // retrieves everything from the DB about BLE
 router.post("/ble-scan", auth, scanBLE); // sends something called isIsolated or not?
 router.get("/esp-mic", auth, esp);
 

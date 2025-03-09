@@ -9,7 +9,7 @@ import {
   Link, // Added Link import
   ThemeProvider,
 } from '@mui/material';
-import { styled } from '@mui/system';
+import { style, styled, width } from '@mui/system';
 import { createTheme } from '@mui/material/styles';
 
 // Custom theme (unchanged)

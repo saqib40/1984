@@ -53,15 +53,16 @@ const theme = createTheme({
 
 // Custom styles
 const HeroSection = styled(Box)(({ theme }) => ({
-  width: '100vw', // Full viewport width
-  minHeight: '80vh', // Minimum height, adjusts to content
-  backgroundColor: theme.palette.background.default, // Solid dark background
+  width: '100%', // Use 100% of parent's width (more responsive than 100vw)
+  minHeight: '80vh', // Minimum height adjusts to content
+  backgroundColor: theme.palette.background.default,
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
   alignItems: 'center',
   padding: theme.spacing(4),
-  color: theme.palette.text.primary, // White text
+  boxSizing: 'border-box', // Include padding in width calculations
+  color: theme.palette.text.primary,
 }));
 
 const FeatureCard = styled(Card)(({ theme }) => ({
@@ -69,20 +70,21 @@ const FeatureCard = styled(Card)(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'space-between',
-  backgroundColor: theme.palette.background.paper, // Dark card
-  color: theme.palette.text.primary, // White text
+  backgroundColor: theme.palette.background.paper,
+  color: theme.palette.text.primary,
   boxShadow: theme.shadows[3],
   padding: theme.spacing(3),
   borderRadius: theme.shape.borderRadius,
-  border: '1px solid rgba(255, 255, 255, 0.1)', // Subtle border
+  border: '1px solid rgba(255, 255, 255, 0.1)',
 }));
 
 const CTASection = styled(Box)(({ theme }) => ({
-  width: '100vw', // Full viewport width
+  width: '100%', // Use full width of parent container
   padding: theme.spacing(6),
-  backgroundColor: theme.palette.primary.main, // Dark blue
-  color: theme.palette.text.primary, // White text
+  backgroundColor: theme.palette.primary.main,
+  color: theme.palette.text.primary,
   textAlign: 'center',
+  boxSizing: 'border-box', // Ensure proper sizing with padding
 }));
 
 const StyledButton = styled(Button)(({ theme }) => ({
@@ -92,7 +94,7 @@ const StyledButton = styled(Button)(({ theme }) => ({
   boxShadow: theme.shadows[2],
   '&:hover': {
     boxShadow: theme.shadows[4],
-    backgroundColor: theme.palette.secondary.light, // Lighter green on hover
+    backgroundColor: theme.palette.secondary.light,
   },
 }));
 
